@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<div class="head">
+<h1 class="one">Calculator </h1>
+</div>
+<body>
+  <div class="calculatar">
+    
+    <input type="text"  class="display" id="display" disabled>
+    <div class="buttons">
+      <button class="button" onclick="clearDisplay()">CLR</button>
+      <button class="button" onclick="appendNumber(0)">0</button>
+      <button class="button" onclick="deleteChar()">DEL</button>
+      <button class="button operator" onclick="appendOperator('+')">+</button>
+      
+    
+      <button class="button" onclick="appendNumber(7)">7</button>
+      <button class="button" onclick="appendNumber(8)">8</button>
+      <button class="button" onclick="appendNumber(9)">9</button>
+      <button class="button operator" onclick="appendOperator('/')">/</button>
+    
+      <button class="button" onclick="appendNumber(4)">4</button>
+      <button class="button" onclick="appendNumber(5)">5</button>
+      <button class="button" onclick="appendNumber(6)">6</button>
+      <button class="button operator" onclick="appendOperator('*')">*</button>
+     
+      <button class="button" onclick="appendNumber(1)">1</button>
+      <button class="button" onclick="appendNumber(2)">2</button>
+      <button class="button" onclick="appendNumber(3)">3</button>
+      <button class="button operator" onclick="appendOperator('-')">-</button>
+     
+      <button class="button operator" onclick="appendOperator('.')">.</button>
+      <button class="button operator" onclick="appendOperator('<')"><</button>
+      <button class="button operator" onclick="appendOperator('>')">></button>
+      <button class="button operator" onclick=" calculate('=')">=</button>      
+    </div>
+  </div>
+
+  <script>
+    let display = document.getElementById('display');
+
+    function clearDisplay() {
+      display.value = '';
+    }
+
+    function deleteChar() {
+      display.value = display.value.slice(0, -0);
+    }
+
+    function appendNumber(num) {
+      display.value += num;
+    }
+
+    function appendOperator(operator) {
+      display.value += operator;
+    }
+
+    function calculate() {
+      try {
+        let result = eval(display.value);
+        display.value = result;
+      } catch (error) {
+        display.value = 'Error';
+      }
+    }
+  </script>
+</body>
+</html>
